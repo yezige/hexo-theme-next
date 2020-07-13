@@ -60,6 +60,12 @@
         {% else %}
           {{ page.content }}
         {%- endif %}
+
+        {# 其他-文章末尾 #}
+        {%- if page.type !== 'resume' %}
+          {{ partial('_customs/adsbygoogle.swig', {format: 'auto', slot: '5893386861', margin: '60px 0 0 0'}) }}
+        {%- endif %}
+
       </div>
       {#####################}
       {### END PAGE BODY ###}

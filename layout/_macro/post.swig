@@ -162,10 +162,15 @@
       </header>
     {%- endif %}
 
+    {# 详情-标题下方 #}
+    {%- if not is_index %}
+      {{ partial('_customs/adsbygoogle.swig', {format: 'auto', slot: '3778552935', margin: '0 0 30px 0'}) }}
+    {%- endif %}
+
     {#################}
     {### POST BODY ###}
     {#################}
-    <div class="post-body{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="articleBody">
+    <div class="post-body{%- if not is_index %} first_up{%- endif %}{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="articleBody">
 
       {# Gallery support #}
       {%- if post.photos and post.photos.length %}
@@ -217,6 +222,9 @@
 
     {%- if not is_index %}
       {{- next_inject('postBodyEnd') }}
+
+      {# 详情-底部 #}
+      {{ partial('_customs/adsbygoogle.swig', {format: 'auto', slot: '8326858958', margin: '60px 0 0 0'}) }}
 
       {%- if post.reward_settings.enable %}
         {{ partial('_partials/post/post-reward.swig') }}
